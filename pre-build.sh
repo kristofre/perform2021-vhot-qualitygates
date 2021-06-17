@@ -1,6 +1,7 @@
 source_repo="https://github.com/dynatrace-ace/perform2021-quality-gates"
 clone_folder="bootstrap"
-home_folder="/home/dtu_training"
+shell_user="ace"
+home_folder="/home/$shell_user"
 
 rm -rf bootstrap
 ##############################
@@ -10,7 +11,7 @@ cd $home_folder
 mkdir "$clone_folder"
 cd "$home_folder/$clone_folder"
 git clone "$source_repo" .
-chown -R dtu_training $home_folder/$clone_folder
+chown -R $shell_user $home_folder/$clone_folder
 cd "$home_folder/$clone_folder/"
 chmod u+x ./build.sh  
 ./build.sh "$home_folder" "$clone_folder" "$source_repo"

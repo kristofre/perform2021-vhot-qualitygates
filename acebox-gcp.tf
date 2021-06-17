@@ -103,11 +103,8 @@ resource "google_compute_instance" "acebox" {
 
   provisioner "remote-exec" {
     inline = [
-        "sudo export DYNATRACE_ENVIRONMENT_URL=${each.value["url"]}",
-        "sudo export DYNATRACE_TOKEN=${each.value["api_token"]}",
-        "sudo export DYNATRACE_PAAS_TOKEN=${each.value["paas_token"]}",
         "sudo chmod +x ~/install.sh",
-        "sudo DYNATRACE_ENVIRONMENT_URL=${each.value["url"]} DYNATRACE_API_TOKEN=${each.value["api_token"]} DYNATRACE_PAAS_TOKEN=${each.value["paas_token"]} ~/install.sh"
+        "sudo DYNATRACE_ENVIRONMENT_URL=${each.value["url"]} DYNATRACE_TOKEN=${each.value["api_token"]} DYNATRACE_PAAS_TOKEN=${each.value["paas_token"]} ~/install.sh"
       ]
   }
 }
